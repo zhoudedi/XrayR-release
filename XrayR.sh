@@ -387,7 +387,7 @@ show_menu() {
 ————————————————
  ${green}11.${plain} 一键安装 bbr (最新内核)
  ${green}12.${plain} 查看 XrayR 版本 
- ${green}13.${green} 升级维护脚本
+ ${green}13.${plain} 升级维护脚本
  "
  #后续更新可加入上方字符串中
     show_status
