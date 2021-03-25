@@ -454,7 +454,7 @@ if [[ $# > 0 ]]; then
         ;;
         "version") check_install 0 && show_XrayR_version 0
         ;;
-        "update_shell" update_shell
+        "update_shell") update_shell
         ;;
         *) show_usage
     esac
