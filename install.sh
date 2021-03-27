@@ -131,7 +131,7 @@ install_XrayR() {
     echo -e "${green}XrayR v${last_version}${plain} 安装完成，已设置开机自启"
     cp geoip.dat /etc/XrayR/
     cp geosite.dat /etc/XrayR/ 
-    if [[! -f /etc/XrayR/dns.json ]]; then
+    if [[ ! -f /etc/XrayR/dns.json ]]; then
         cp dns.json etc/XrayR/
     fi
     if [[ ! -f /etc/XrayR/config.yml ]]; then
