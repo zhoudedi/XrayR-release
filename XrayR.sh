@@ -120,7 +120,14 @@ update() {
 }
 
 config() {
-    cat /etc/XrayR/config.yml
+   vi /etc/XrayR/config.yml
+   echo "是否现在重启xrayr？[Y/n]" && echo
+        read -e -p "(默认: y):" yn
+        [[ -z ${yn} ]] && yn="y"
+        if [[ ${yn} == [Yy] ]]; then
+               check_install && restart
+        fi
+
 }
 
 uninstall() {
@@ -370,7 +377,7 @@ show_menu() {
     echo -e "
   ${green}XrayR 后端管理脚本，${plain}${red}不适用于docker${plain}
 --- https://github.com/XrayR-project/XrayR ---
-  ${green}0.${plain} 退出脚本
+  ${green}0.${plain} 修改配置
 ————————————————
   ${green}1.${plain} 安装 XrayR
   ${green}2.${plain} 更新 XrayR
@@ -394,7 +401,7 @@ show_menu() {
     echo && read -p "请输入选择 [0-13]: " num
 
     case "${num}" in
-        0) exit 0
+        0) config
         ;;
         1) check_uninstall && install
         ;;
