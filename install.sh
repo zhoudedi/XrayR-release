@@ -98,8 +98,8 @@ pre_check() {
         GITHUB_RAW_URL="raw.githubusercontent.com"
         GITHUB_URL="github.com"
     else
-        GITHUB_RAW_URL="raw.fastgit.org"
-        GITHUB_URL="hub.fastgit.xyz"
+        GITHUB_RAW_URL="ghproxy.com/https://raw.githubusercontent.com"
+        GITHUB_URL="ghproxy.com/https://github.com"
     fi
 }
 
