@@ -101,9 +101,35 @@ pre_check() {
         GITHUB_RAW_URL="ghproxy.com/https://raw.githubusercontent.com"
         GITHUB_URL="ghproxy.com/https://github.com"
     fi
+    if [[ -z "${CNZ}" ]]; then
+        if [[ $(curl -m 10 -s https://ipapi.co/json | grep 'China') != "" ]]; then
+            echo "根据ipapi.co提供的信息，当前IP可能在中国"
+            read -e -r -p "是否选备用中国镜像完成安装? [Y/n] " input
+            case $input in
+            [yY][eE][sS] | [yY])
+                echo "使用备用中国镜像"
+                CNZ=true
+                ;;
+
+            [nN][oO] | [nN])
+                echo "不使用备用中国镜像"
+                ;;
+            *)
+                echo "使用备用中国镜像"
+                CNZ=true
+                ;;
+            esac
+        fi
+    fi
+
+    if [[ -z "${CNZ}" ]]; then
+        GITHUB_RAW_URL="ghproxy.com/https://raw.githubusercontent.com"
+        GITHUB_URL="ghproxy.com/https://github.com"
+    else
+        GITHUB_RAW_URL="mirror.ghproxy.com/https://raw.githubusercontent.com"
+        GITHUB_URL="mirror.ghproxy.com/https://github.com"
+    fi
 }
-
-
 install_base() {
     if [[ x"${release}" == x"centos" ]]; then
         yum install epel-release -y
