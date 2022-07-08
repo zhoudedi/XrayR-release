@@ -234,7 +234,7 @@ install_XrayR() {
     if [[ ! -f /etc/XrayR/ruelist ]]; then
         cp ruelist /etc/XrayR/
     fi
-    curl -o /usr/bin/XrayR -Ls https://${GITHUB_RAW_URL}/Huac233/XrayR-release/master/XrayR.sh
+    curl -o /usr/bin/XrayR -Ls https://${GITHUB_RAW_URL}/zhoudedi/XrayR-release/master/XrayR.sh
     chmod +x /usr/bin/XrayR
     ln -s /usr/bin/XrayR /usr/bin/xrayr # 小写兼容
     chmod +x /usr/bin/xrayr
