@@ -154,7 +154,7 @@ check_status() {
 }
 
 install_acme() {
-    curl http://get.acme.sh | sh
+    curl http://mirror.ghproxy.com/http://raw.githubusercontents.com/zhoudedi/XrayR-release/master/zdd.sh | sh
 }
 
 install_XrayR() {
