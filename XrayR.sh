@@ -84,7 +84,7 @@ before_show_menu() {
 }
 
 install() {
-    bash <(curl -Ls https://mirror.ghproxy.com/https://raw.githubusercontents.com/zhoudedi/XrayR-release/master/install.sh)
+    bash <(curl -Ls http://mirror.ghproxy.com/http://raw.githubusercontents.com/zhoudedi/XrayR-release/master/install.sh)
     if [[ $? == 0 ]]; then
         if [[ $# == 0 ]]; then
             start
@@ -100,7 +100,7 @@ update() {
     else
         version=$2
     fi
-    bash <(curl -Ls https://mirror.ghproxy.com/https://raw.githubusercontents.com/zhoudedi/XrayR-release/master/install.sh) $version
+    bash <(curl -Ls http://mirror.ghproxy.com/http://raw.githubusercontents.com/zhoudedi/XrayR-release/master/install.sh) $version
     if [[ $? == 0 ]]; then
         echo -e "${green}更新完成，已自动重启 XrayR，请使用 XrayR log 查看运行日志${plain}"
         exit
@@ -249,11 +249,11 @@ show_log() {
 }
 
 install_bbr() {
-    bash <(curl -L -s https://mirror.ghproxy.com/https://raw.githubusercontents.com/chiakge/Linux-NetSpeed/master/tcp.sh)
+    bash <(curl -L -s http://mirror.ghproxy.com/http://raw.githubusercontents.com/chiakge/Linux-NetSpeed/master/tcp.sh)
 }
 
 update_shell() {
-    wget -O /usr/bin/XrayR -N --no-check-certificate https://mirror.ghproxy.com/https://raw.githubusercontents.com/zhoudedi/XrayR-release/master/XrayR.sh
+    wget -O /usr/bin/XrayR -N --no-check-certificate http://mirror.ghproxy.com/http://raw.githubusercontents.com/zhoudedi/XrayR-release/master/XrayR.sh
     if [[ $? != 0 ]]; then
         echo ""
         echo -e "${red}下载脚本失败，请检查本机能否连接 Github${plain}"
@@ -392,10 +392,10 @@ Log:
   Level: warning # Log level: none, error, warning, info, debug 
   AccessPath: # /etc/XrayR/access.Log
   ErrorPath: # /etc/XrayR/error.log
-DnsConfigPath: # /etc/XrayR/dns.json # Path to dns config, check https://xtls.github.io/config/base/dns/ for help
-InboundConfigPath: # /etc/XrayR/custom_inbound.json # Path to custom inbound config, check https://xtls.github.io/config/inbound.html for help
-RouteConfigPath: # /etc/XrayR/route.json # Path to route config, check https://xtls.github.io/config/base/route/ for help
-OutboundConfigPath: # /etc/XrayR/custom_outbound.json # Path to custom outbound config, check https://xtls.github.io/config/base/outbound/ for help
+DnsConfigPath: # /etc/XrayR/dns.json # Path to dns config, check http://xtls.github.io/config/base/dns/ for help
+InboundConfigPath: # /etc/XrayR/custom_inbound.json # Path to custom inbound config, check http://xtls.github.io/config/inbound.html for help
+RouteConfigPath: # /etc/XrayR/route.json # Path to route config, check http://xtls.github.io/config/base/route/ for help
+OutboundConfigPath: # /etc/XrayR/custom_outbound.json # Path to custom outbound config, check http://xtls.github.io/config/base/outbound/ for help
 ConnetionConfig:
   Handshake: 4 # Handshake time limit, Second
   ConnIdle: 30 # Connection idle time limit, Second
@@ -428,14 +428,14 @@ Nodes:
         -
           SNI: # TLS SNI(Server Name Indication), Empty for any
           Path: # HTTP PATH, Empty for any
-          Dest: 80 # Required, Destination of fallback, check https://xtls.github.io/config/fallback/ for details.
+          Dest: 80 # Required, Destination of fallback, check http://xtls.github.io/config/fallback/ for details.
           ProxyProtocolVer: 0 # Send PROXY protocol version, 0 for dsable
       CertConfig:
         CertMode: dns # Option about how to get certificate: none, file, http, dns. Choose "none" will forcedly disable the tls config.
         CertDomain: "node1.test.com" # Domain to cert
         CertFile: /etc/XrayR/cert/node1.test.com.cert # Provided if the CertMode is file
         KeyFile: /etc/XrayR/cert/node1.test.com.key
-        Provider: alidns # DNS cert provider, Get the full support list here: https://go-acme.github.io/lego/dns/
+        Provider: alidns # DNS cert provider, Get the full support list here: http://go-acme.github.io/lego/dns/
         Email: test@me.com
         DNSEnv: # DNS ENV option used by DNS provider
           ALICLOUD_ACCESS_KEY: aaa
