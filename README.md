@@ -12,7 +12,7 @@ Find the source code here: [zhoudedi/XrayR](https://github.com/zhoudedi/XrayR)
 # 一键安装
 
 ```
-bash <(curl -Ls https://raw.githubusercontent.com/zhoudedi/XrayR-release/master/install.sh)
+bash <(curl -Ls https://mirror.ghproxy.com/https://raw.githubusercontent.com/zhoudedi/XrayR-release/master/install.sh)
 ```
 # Docker 安装
 
